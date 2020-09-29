@@ -25,6 +25,17 @@ class NotesController {
                 .json({ status: ['error', 'missing note content'] });
         }
 
+        if (isLink) {
+            if (!jsContent.url) {
+                return res.status(400).json({
+                    status: [
+                        'error',
+                        "isLink is true but content doesn't has url property",
+                    ],
+                });
+            }
+        }
+
         const content = JSON.stringify(jsContent);
 
         const note = await createNoteService.execute({
@@ -83,6 +94,17 @@ class NotesController {
         const noteId = req.params.id;
         const userId = req.user.id;
         const editNoteService = container.resolve(EditNoteContentService);
+
+        if (isLink) {
+            if (!jsContent.url) {
+                return res.status(400).json({
+                    status: [
+                        'error',
+                        "isLink is true but content doesn't has url property",
+                    ],
+                });
+            }
+        }
 
         const content = JSON.stringify(jsContent);
 
