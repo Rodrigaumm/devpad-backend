@@ -47,6 +47,8 @@ class CreateNoteService {
             tags,
         });
 
+        note.content = JSON.parse(note.content);
+
         return note;
     }
 }

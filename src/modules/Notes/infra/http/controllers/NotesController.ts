@@ -9,7 +9,7 @@ import EditNoteContentService from '@modules/Notes/services/EditNoteContentServi
 
 class NotesController {
     public async create(req: Request, res: Response): Promise<Response> {
-        const { title, content, tags, isLink } = req.body;
+        const { title, content: jsContent, tags, isLink } = req.body;
         const userId = req.user.id;
         const createNoteService = container.resolve(CreateNoteService);
 
@@ -19,11 +19,13 @@ class NotesController {
                 .json({ status: ['error', 'missing note title'] });
         }
 
-        if (!content) {
+        if (!jsContent) {
             return res
                 .status(400)
                 .json({ status: ['error', 'missing note content'] });
         }
+
+        const content = JSON.stringify(jsContent);
 
         const note = await createNoteService.execute({
             title,
@@ -77,10 +79,12 @@ class NotesController {
     }
 
     public async update(req: Request, res: Response): Promise<Response> {
-        const { title, content, tags, isLink } = req.body;
+        const { title, content: jsContent, tags, isLink } = req.body;
         const noteId = req.params.id;
         const userId = req.user.id;
         const editNoteService = container.resolve(EditNoteContentService);
+
+        const content = JSON.stringify(jsContent);
 
         const newNote = await editNoteService.execute({
             noteId,

@@ -13,7 +13,7 @@ export class CreateUserForeignKeyInNotesTable1600523963863
             new TableColumn({
                 name: 'userId',
                 type: 'uuid',
-                isNullable: true,
+                isNullable: false,
             }),
         );
 

@@ -17,6 +17,10 @@ class ShowNotesByTag {
             throw new AppError("Tags doesn't have any notes");
         }
 
+        notes.forEach(note => {
+            note.content = JSON.parse(note.content); //eslint-disable-line
+        });
+
         return notes;
     }
 }

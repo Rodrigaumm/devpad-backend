@@ -17,6 +17,8 @@ class GetNoteInfoService {
             throw new AppError('Unable to find requested note');
         }
 
+        noteInfo.content = JSON.parse(noteInfo.content);
+
         return noteInfo;
     }
 }
