@@ -39,8 +39,6 @@ class EditNoteContentService {
             throw new AppError('requested note not found');
         }
 
-        newNote.content = JSON.parse(newNote.content);
-
         return newNote;
     }
 }

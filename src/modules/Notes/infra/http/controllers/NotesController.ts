@@ -90,13 +90,13 @@ class NotesController {
     }
 
     public async update(req: Request, res: Response): Promise<Response> {
-        const { title, content: jsContent, tags, isLink } = req.body;
+        const { title, content, tags, isLink } = req.body;
         const noteId = req.params.id;
         const userId = req.user.id;
         const editNoteService = container.resolve(EditNoteContentService);
 
         if (isLink) {
-            if (!jsContent.url) {
+            if (!content.url) {
                 return res.status(400).json({
                     status: [
                         'error',
@@ -105,8 +105,6 @@ class NotesController {
                 });
             }
         }
-
-        const content = JSON.stringify(jsContent);
 
         const newNote = await editNoteService.execute({
             noteId,
