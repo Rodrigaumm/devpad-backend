@@ -78,7 +78,7 @@ class NotesController {
     }
 
     public async destroy(req: Request, res: Response): Promise<Response> {
-        const { noteId } = req.body;
+        const noteId = req.params.id;
         const { id: userId } = req.user;
         const deleteNoteService = container.resolve(DeleteNoteService);
 
