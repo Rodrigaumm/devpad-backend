@@ -22,6 +22,16 @@ class EditNoteContentService {
             return newNote;
         }
 
+        if (data.tags.length === 0) {
+            data.newTags = []; //eslint-disable-line
+            const newNote = await this.notesRepository.update(data);
+            if (!newNote) {
+                throw new AppError('requested note not found');
+            }
+
+            return newNote;
+        }
+
         const tags = await this.tagsRepository.findTagsByName(
             data.tags,
             data.userId,

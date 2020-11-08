@@ -8,5 +8,4 @@ export default interface INotesRepository {
     update(data: INoteEditDTO): Promise<Note | undefined>;
     findOne(noteId: string, userId: string): Promise<Note | undefined>;
     findAll(userId: string): Promise<Note[]>;
-    findByTags(tags: string[], userId: string): Promise<Note[]>;
 }

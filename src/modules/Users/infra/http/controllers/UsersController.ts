@@ -38,11 +38,10 @@ export default class UsersController {
     }
 
     public async index(req: Request, res: Response): Promise<Response> {
+        const { id } = req.params;
+
         const getUserService = container.resolve(GetUserService);
-
-        const { username } = req.params;
-
-        const user = await getUserService.execute(username);
+        const user = await getUserService.execute(id);
 
         return res.status(200).json({
             status: ['success', 'user info listed successfully'],

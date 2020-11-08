@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import AuthenticateUserService from '@modules/Users/services/AuthenticateUserService';
+import VerifyUserToken from '@modules/Users/services/VerifyUserTokenService';
 
 class AuthController {
     public async create(req: Request, res: Response): Promise<Response> {
@@ -22,6 +23,18 @@ class AuthController {
                 id: user.id,
                 username: user.username,
             },
+        });
+    }
+
+    public async show(req: Request, res: Response): Promise<Response> {
+        const { token } = req.params;
+
+        const verifyUserTokenService = new VerifyUserToken();
+
+        const status = await verifyUserTokenService.execute(token);
+
+        return res.status(200).json({
+            status,
         });
     }
 }

@@ -10,6 +10,7 @@ tagsRouter.use(ensureAuthenticated);
 
 tagsRouter.post('/', tagsController.create);
 tagsRouter.get('/', tagsController.index);
-tagsRouter.delete('/', tagsController.destroy);
+tagsRouter.delete('/:tagId', tagsController.destroy);
+tagsRouter.put('/:tagId', tagsController.update);
 
 export default tagsRouter;

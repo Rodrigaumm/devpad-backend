@@ -3,12 +3,8 @@ import { getRepository, In, Repository } from 'typeorm';
 import ITagsRepository from '@modules/Tags/repositories/ITagsRepository';
 import Tag from '@modules/Tags/infra/typeorm/entities/Tag';
 import ITagCreationDTO from '@modules/Tags/dtos/ITagCreationDTO';
+import ITagEditDTO from '@modules/Tags/dtos/ITagEditDTO';
 import AppError from '@shared/errors/AppError';
-import Note from '@modules/Notes/infra/typeorm/entities/Notes';
-
-interface INotesReduce {
-    [key: string]: number;
-}
 
 class TagsRepository implements ITagsRepository {
     private ormRepository: Repository<Tag>;
@@ -63,6 +59,35 @@ class TagsRepository implements ITagsRepository {
         });
 
         return tags;
+    }
+
+    public async update(
+        tagId: string,
+        userId: string,
+        newData: ITagEditDTO,
+    ): Promise<Tag | undefined> {
+        const tag = await this.ormRepository.findOne({
+            where: {
+                id: tagId,
+                userId,
+            },
+        });
+
+        if (!tag) {
+            return tag;
+        }
+
+        if (newData.name) {
+            tag.name = newData.name;
+        }
+
+        if (newData.color) {
+            tag.color = newData.color;
+        }
+
+        await this.ormRepository.save(tag);
+
+        return tag;
     }
 
     public async findOne(

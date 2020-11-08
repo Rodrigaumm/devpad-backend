@@ -23,14 +23,6 @@ class CreateUserService {
             throw new AppError('Email address already used.');
         }
 
-        const checkUsername = await this.usersRepository.findByUsername(
-            username,
-        );
-
-        if (checkUsername) {
-            throw new AppError('Username already used');
-        }
-
         const hashedPassword = await hash(password, 8);
 
         const user = await this.usersRepository.create({

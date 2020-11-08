@@ -21,11 +21,9 @@ export default class UsersRepository implements IUserRepository {
         return user;
     }
 
-    public async findByUsername(username: string): Promise<User | undefined> {
-        const user = await this.ormRepository.findOne({
-            where: { username },
-            relations: ['tags', 'notes'],
-        });
+    public async findById(id: string): Promise<User | undefined> {
+        const user = await this.ormRepository.findOne(id);
+
         return user;
     }
 

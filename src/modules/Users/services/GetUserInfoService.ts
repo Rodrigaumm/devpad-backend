@@ -11,10 +11,10 @@ class GetUserService {
     ) {}
 
     public async execute(username: string): Promise<User> {
-        const user = await this.usersRepository.findByUsername(username);
+        const user = await this.usersRepository.findById(username);
 
         if (!user) {
-            throw new AppError('Username not found');
+            throw new AppError('User not found');
         }
 
         return user;

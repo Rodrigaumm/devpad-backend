@@ -79,7 +79,16 @@ export default class NotesRepository implements INotesRepository {
             return undefined;
         }
 
-        Object.assign(note, { title, content, isLink, tags: newTags });
+        Object.assign(note, {
+            title,
+            content,
+            isLink,
+            tags: newTags,
+        });
+
+        if (newTags && newTags.length === 0 && note.tags) {
+            note.tags = [];
+        }
 
         note.updatedAt = new Date();
 
@@ -112,41 +121,6 @@ export default class NotesRepository implements INotesRepository {
             order: {
                 createdAt: 'DESC',
             },
-        });
-
-        return notes;
-    }
-
-    public async findByTags(
-        tagsNames: string[],
-        userId: string,
-    ): Promise<Note[]> {
-        let notes = await this.ormRepository.find({
-            where: {
-                userId,
-            },
-            relations: ['tags', 'user'],
-            order: {
-                createdAt: 'ASC',
-            },
-        });
-
-        notes = notes.filter(note => {
-            const noteTags = note.tags;
-
-            if (noteTags.length === tagsNames.length) {
-                const includesSearchedTags = noteTags.reduce(
-                    (prev, noteTag) => {
-                        if (tagsNames.includes(noteTag.name) && prev === true) {
-                            return true;
-                        }
-                        return false;
-                    },
-                    true,
-                );
-
-                return includesSearchedTags;
-            }
         });
 
         return notes;

@@ -5,7 +5,7 @@ import CreateNoteService from '@modules/Notes/services/CreateNoteService';
 import GetNoteInfoService from '@modules/Notes/services/GetNoteInfoService';
 import ListAllNotesService from '@modules/Notes/services/ListAllNotesService';
 import DeleteNoteService from '@modules/Notes/services/DeleteNoteService';
-import EditNoteContentService from '@modules/Notes/services/EditNoteContentService';
+import EditNoteContentService from '@modules/Notes/services/EditNoteService';
 
 class NotesController {
     public async create(req: Request, res: Response): Promise<Response> {

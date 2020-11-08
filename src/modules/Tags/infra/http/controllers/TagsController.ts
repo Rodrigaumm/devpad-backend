@@ -4,6 +4,7 @@ import { container } from 'tsyringe';
 import CreateTagService from '@modules/Tags/services/CreateTagService';
 import ListTagsService from '@modules/Tags/services/ListTagsService';
 import DeleteTagService from '@modules/Tags/services/DeleteTagService';
+import EditTagService from '@modules/Tags/services/EditTagService';
 
 class TagsController {
     public async create(req: Request, res: Response): Promise<Response> {
@@ -34,7 +35,7 @@ class TagsController {
     }
 
     public async destroy(req: Request, res: Response): Promise<Response> {
-        const { tagId } = req.body;
+        const { tagId } = req.params;
         const userId = req.user.id;
         const deleteTagService = container.resolve(DeleteTagService);
 
@@ -42,6 +43,21 @@ class TagsController {
 
         return res.status(200).json({
             status: ['success', 'tag deleted successfully'],
+        });
+    }
+
+    public async update(req: Request, res: Response): Promise<Response> {
+        const { tagId } = req.params;
+        const userId = req.user.id;
+        const tagData = req.body;
+
+        const editTagService = container.resolve(EditTagService);
+
+        const newTag = await editTagService.execute(tagId, userId, tagData);
+
+        return res.status(200).json({
+            status: ['success', 'tag updated successfully'],
+            newTag,
         });
     }
 }
