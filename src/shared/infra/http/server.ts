@@ -32,4 +32,6 @@ app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
     });
 });
 
-app.listen(6969, () => console.log('✔ Server running on port 6969 ✔'));
+const PORT = process.env.PORT || 6969;
+
+app.listen(PORT, () => console.log(`✔ Server running on port ${PORT} ✔`));
