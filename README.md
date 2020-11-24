@@ -13,8 +13,6 @@ with the property _token_ containing your JWT valid for 24 hours.
 
 To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ route with a **GET** method.
 
----
-
 # Endpoints
 
 ## Users
