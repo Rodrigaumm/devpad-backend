@@ -28,11 +28,12 @@ Route = _"/users"_
     Needs a JSON body that contains _username_, _email_ and _password_ properties;
     Creates and returns the new user info.
 
-    Creates an user and its info
+    Creates an user and returns its info
 
 -   _"/userId"_ - **GET**
 
     **isPrivate** = false
+
     Returns an user's info
 
 ---
