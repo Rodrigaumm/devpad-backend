@@ -22,11 +22,14 @@ To verify if a token is still valid, use the _/auth/verify/yourTokenHere_ route 
 Route = _/users_
 
 -   _/_ - **POST**
+
     **isPrivate** = false
+
     Needs a JSON body that contains _username_, _email_ and _password_ properties;
     Creates and returns the new user info.
 
 -   _/userId_ - **GET**
+
     **isPrivate** = false
     Returns a user info.
 
@@ -35,12 +38,16 @@ Route = _/users_
 Route = _/auth_
 
 -   _/_ - **POST**
+
     **isPrivate** = false
+
     Needs a JSON body that contains _email_ and _password_ properties, filled with a existent user's data;
     Generates a JSONWebToken used to access private routes
 
 -   _/verify/JSONWebToken_ - **GET**
+
     **isPrivate** = false
+
     Verifies if the given JWT is valid or not.
 
 ## Notes
@@ -48,15 +55,21 @@ Route = _/auth_
 Route = _/notes_
 
 -   _/_ - **GET**
+
     **isPrivate** = true
+
     Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header.
 
 -   _/noteId_ - **GET**
+
     **isPrivate** = true
+
     Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header.
 
 -   _/_ - **POST**
+
     **isPrivate** = true
+
     Needs a JSON body that contains the following properties:
 
 1. _title_ - string
@@ -66,7 +79,9 @@ Route = _/notes_
    Creates a new note and returns its info.
 
 -   _/noteId_ - **PUT**
+
     **isPrivate** = true
+
     Needs a JSON body that can contain the following properties:
 
 1. _title_ - string
@@ -76,7 +91,9 @@ Route = _/notes_
    Updates the note's info and returns the updated note info.
 
 -   _/noteId_ - **DELETE**
+
     **isPrivate** = true
+
     Deletes the note by its ID. Only deletes if the given note is property from the user that generated the token sent in Authorization header.
 
 ## Tags
