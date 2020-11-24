@@ -11,7 +11,7 @@ To create a valid JWT, send a **POST** request to _/auth_ with a JSON body which
 an _email_ and _password_ properties filled with an existent user's data. That request will send back a JSON
 with the property _token_ containing your JWT valid for 24 hours.
 
-To verify if a token is still valid, use the _/auth/verify/yourTokenHere_ route.
+To verify if a token is still valid, use the _/auth/verify/yourTokenHere_ route with a **GET** method.
 
 ---
 
