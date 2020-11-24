@@ -7,11 +7,11 @@ the endpoint and if it need or not an authentication.
 
 To use the private routes is necessary to send an Authorization header in the request filled with a JWT (JSONWebToken). The format of the header is: "Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDU0NzU0NjQsImV4cCI6MTYwNTU2MTg2NCwic3ViIjoiNGRhZWFkODMtZTAwZi00NTI2LWI1M2UtYWY1NThhNzgxZjcyIn0.8v_dv2-ZKhJjfrrbPOSip1dDdQN_KN9Aj6WmvT7jUgg'"
 
-To create a valid JWT, send a **POST** request to _/auth_ with a JSON body which needs to contain
+To create a valid JWT, send a **POST** request to _"/auth"_ with a JSON body which needs to contain
 an _email_ and _password_ properties filled with an existent user's data. That request will send back a JSON
 with the property _token_ containing your JWT valid for 24 hours.
 
-To verify if a token is still valid, use the _/auth/verify/yourTokenHere_ route with a **GET** method.
+To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ route with a **GET** method.
 
 ---
 
@@ -19,32 +19,32 @@ To verify if a token is still valid, use the _/auth/verify/yourTokenHere_ route 
 
 ## Users
 
-Route = _/users_
+Route = _"/users"_
 
--   _/_ - **POST**
+-   _"/"_ - **POST**
 
     **isPrivate** = false
 
     Needs a JSON body that contains _username_, _email_ and _password_ properties;
     Creates and returns the new user info.
 
--   _/userId_ - **GET**
+-   _"/userId"_ - **GET**
 
     **isPrivate** = false
     Returns a user info.
 
 ---
 
-Route = _/auth_
+Route = _"/auth"_
 
--   _/_ - **POST**
+-   _"/"_ - **POST**
 
     **isPrivate** = false
 
     Needs a JSON body that contains _email_ and _password_ properties, filled with a existent user's data;
     Generates a JSONWebToken used to access private routes
 
--   _/verify/JSONWebToken_ - **GET**
+-   _"/verify/JSONWebToken"_ - **GET**
 
     **isPrivate** = false
 
@@ -52,21 +52,21 @@ Route = _/auth_
 
 ## Notes
 
-Route = _/notes_
+Route = _"/notes"_
 
--   _/_ - **GET**
+-   _"/"_ - **GET**
 
     **isPrivate** = true
 
     Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header.
 
--   _/noteId_ - **GET**
+-   _"/noteId"_ - **GET**
 
     **isPrivate** = true
 
     Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header.
 
--   _/_ - **POST**
+-   _"/"_ - **POST**
 
     **isPrivate** = true
 
@@ -78,7 +78,7 @@ Route = _/notes_
 4. _isLink_ - boolean
    Creates a new note and returns its info.
 
--   _/noteId_ - **PUT**
+-   _"/noteId"_ - **PUT**
 
     **isPrivate** = true
 
@@ -90,7 +90,7 @@ Route = _/notes_
 4. _isLink_ - boolean
    Updates the note's info and returns the updated note info.
 
--   _/noteId_ - **DELETE**
+-   _"/noteId"_ - **DELETE**
 
     **isPrivate** = true
 
