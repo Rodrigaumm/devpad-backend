@@ -28,10 +28,12 @@ Route = _"/users"_
     Needs a JSON body that contains _username_, _email_ and _password_ properties;
     Creates and returns the new user info.
 
+    Creates an user and its info
+
 -   _"/userId"_ - **GET**
 
     **isPrivate** = false
-    Returns a user info.
+    Returns an user's info
 
 ---
 
@@ -48,7 +50,7 @@ Route = _"/auth"_
 
     **isPrivate** = false
 
-    Verifies if the given JWT is valid or not.
+    Verifies if the given JWT is valid or not
 
 ## Notes
 
@@ -58,13 +60,13 @@ Route = _"/notes"_
 
     **isPrivate** = true
 
-    Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header.
+    Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header
 
 -   _"/noteId"_ - **GET**
 
     **isPrivate** = true
 
-    Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header.
+    Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header
 
 -   _"/"_ - **POST**
 
@@ -76,7 +78,8 @@ Route = _"/notes"_
 2. _content_ - JSON object / string
 3. _tags_ - not required - an array which every element is an existent tag name
 4. _isLink_ - boolean
-   Creates a new note and returns its info.
+
+    Creates a new note and returns its info.
 
 -   _"/noteId"_ - **PUT**
 
@@ -88,7 +91,8 @@ Route = _"/notes"_
 2. _content_ - JSON object / string
 3. _tags_ - not required - an array which every element is an existent tag name
 4. _isLink_ - boolean
-   Updates the note's info and returns the updated note info.
+
+    Updates the note's info and returns the updated note info.
 
 -   _"/noteId"_ - **DELETE**
 
