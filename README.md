@@ -49,6 +49,8 @@ Route = _"/auth"_
     Needs a JSON body that contains _email_ and _password_ properties, filled with a existent user's data;
     Generates a JSONWebToken used to access private routes
 
+    **Creates a JWT for the user which has compatible info with the sent data and returns it**
+
 ---
 
 -   _"/verify/JSONWebToken"_ - **GET**
