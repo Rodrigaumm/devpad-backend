@@ -28,13 +28,15 @@ Route = _"/users"_
     Needs a JSON body that contains _username_, _email_ and _password_ properties;
     Creates and returns the new user info.
 
-    Creates an user and returns its info
+    **Creates an user and returns its info**
+
+---
 
 -   _"/userId"_ - **GET**
 
     **isPrivate** = false
 
-    Returns an user's info
+    **Returns an user's info**
 
 ---
 
@@ -47,11 +49,15 @@ Route = _"/auth"_
     Needs a JSON body that contains _email_ and _password_ properties, filled with a existent user's data;
     Generates a JSONWebToken used to access private routes
 
+---
+
 -   _"/verify/JSONWebToken"_ - **GET**
 
     **isPrivate** = false
 
-    Verifies if the given JWT is valid or not
+    **Verifies if the given JWT is valid or not**
+
+---
 
 ## Notes
 
@@ -61,13 +67,17 @@ Route = _"/notes"_
 
     **isPrivate** = true
 
-    Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header
+    **Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header**
+
+---
 
 -   _"/noteId"_ - **GET**
 
     **isPrivate** = true
 
-    Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header
+    **Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header**
+
+---
 
 -   _"/"_ - **POST**
 
@@ -80,7 +90,9 @@ Route = _"/notes"_
 3. _tags_ - not required - an array which every element is an existent tag name
 4. _isLink_ - boolean
 
-    Creates a new note and returns its info.
+    **Creates a new note and returns its info**
+
+---
 
 -   _"/noteId"_ - **PUT**
 
@@ -93,13 +105,17 @@ Route = _"/notes"_
 3. _tags_ - not required - an array which every element is an existent tag name
 4. _isLink_ - boolean
 
-    Updates the note's info and returns the updated note info.
+    **Updates the note's info and returns the updated note info**
+
+---
 
 -   _"/noteId"_ - **DELETE**
 
     **isPrivate** = true
 
-    Deletes the note by its ID. Only deletes if the given note is property from the user that generated the token sent in Authorization header.
+    **Deletes the note by its ID. Only deletes if the given note is property from the user that generated the token sent in Authorization header**
+
+---
 
 ## Tags
 
