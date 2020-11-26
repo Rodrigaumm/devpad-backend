@@ -19,7 +19,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 #### Route = _"/users"_
 
--   _"/"_ - **POST**
+-   `_"/"_` - **POST**
 
     **isPrivate** = false
 
