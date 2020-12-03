@@ -5,7 +5,7 @@ the endpoint and if it need or not an authentication.
 
 # Authentication
 
-To use the private routes is necessary to send an Authorization header in the request filled with a JWT (JSONWebToken). The format of the header is: "Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDU0NzU0NjQsImV4cCI6MTYwNTU2MTg2NCwic3ViIjoiNGRhZWFkODMtZTAwZi00NTI2LWI1M2UtYWY1NThhNzgxZjcyIn0.8v_dv2-ZKhJjfrrbPOSip1dDdQN_KN9Aj6WmvT7jUgg'"
+To use the private routes is necessary to send an Authorization header in the request filled with a JWT (JSONWebToken). The format of the header is: `"Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDU0NzU0NjQsImV4cCI6MTYwNTU2MTg2NCwic3ViIjoiNGRhZWFkODMtZTAwZi00NTI2LWI1M2UtYWY1NThhNzgxZjcyIn0.8v_dv2-ZKhJjfrrbPOSip1dDdQN_KN9Aj6WmvT7jUgg'"`
 
 To create a valid JWT, send a **POST** request to _"/auth"_ with a JSON body which needs to contain
 an _email_ and _password_ properties filled with an existent user's data. That request will send back a JSON
