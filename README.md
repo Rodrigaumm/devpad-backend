@@ -19,7 +19,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 #### Route = _"/users"_
 
--   _"/"_ - **POST**
+-   _`/`_ - **POST**
 
     **isPrivate** = false
 
@@ -30,7 +30,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 ---
 
--   _"/userId"_ - **GET**
+-   _`/userId`_ - **GET**
 
     **isPrivate** = false
 
@@ -40,7 +40,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 #### Route = _"/auth"_
 
--   _"/"_ - **POST**
+-   _`/`_ - **POST**
 
     **isPrivate** = false
 
@@ -51,7 +51,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 ---
 
--   _"/verify/JSONWebToken"_ - **GET**
+-   _`/verify/JSONWebToken`_ - **GET**
 
     **isPrivate** = false
 
@@ -63,7 +63,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 #### Route = _"/notes"_
 
--   _"/"_ - **GET**
+-   _`/`_ - **GET**
 
     **isPrivate** = true
 
@@ -71,7 +71,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 ---
 
--   _"/noteId"_ - **GET**
+-   _`/noteId`_ - **GET**
 
     **isPrivate** = true
 
@@ -79,7 +79,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 ---
 
--   _"/"_ - **POST**
+-   _`/`_ - **POST**
 
     **isPrivate** = true
 
@@ -94,7 +94,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 ---
 
--   _"/noteId"_ - **PUT**
+-   _`/noteId`_ - **PUT**
 
     **isPrivate** = true
 
@@ -109,7 +109,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 ---
 
--   _"/noteId"_ - **DELETE**
+-   _`/noteId`_ - **DELETE**
 
     **isPrivate** = true
 
