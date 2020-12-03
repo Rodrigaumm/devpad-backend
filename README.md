@@ -26,11 +26,15 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
     -   Needs a JSON body that contains _username_, _email_ and _password_ properties;
         Creates and returns the new user info.
 
+    -   URL Example: `https://devpad-backend.herokuapp.com/users/`
+
     -   **Creates an user and returns its info**
 
 -   _`/userId`_ - **GET**
 
     -   **isPrivate** = false
+
+    -   URL Example: `https://devpad-backend.herokuapp.com/users/c4bb05e0-10f2-4811-b4d2-165d91fed35e`
 
     -   **Returns an user's info**
 
@@ -45,11 +49,15 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
     -   Needs a JSON body that contains _email_ and _password_ properties, filled with a existent user's data;
         Generates a JSONWebToken used to access private routes
 
+    -   URL Example: `https://devpad-backend.herokuapp.com/auth/`
+
     -   **Creates a JWT for the user which has compatible info with the sent data and returns it**
 
 -   _`/verify/JSONWebToken`_ - **GET**
 
     -   **isPrivate** = false
+
+    -   URL Example: `https://devpad-backend.herokuapp.com/auth/verify/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDcwMDQ3NTAsImV4cCI6MTYwNzA5MTE1MCwic3ViIjoiYzRiYjA1ZTAtMTBmMi00ODExLWI0ZDItMTY1ZDkxZmVkMzVlIn0.XcLIHGtDY3jWAf0DpP266hdCz8F9j2wbMguTfFF6HY4/`
 
     -   **Verifies if the given JWT is valid or not**
 
@@ -63,11 +71,15 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     -   **isPrivate** = true
 
+    -   URL Example: `https://devpad-backend.herokuapp.com/notes/`
+
     -   **Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header**
 
 -   _`/noteId`_ - **GET**
 
     -   **isPrivate** = true
+
+    -   URL Example: `https://devpad-backend.herokuapp.com/notes/4619cb1f-5d0b-494b-a5cf-1561fc091d5a`
 
     -   **Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header**
 
@@ -78,9 +90,11 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
     -   Needs a JSON body that contains the following properties:
 
         1. _title_ - string
-        2. _content_ - JSON object / string
-        3. _tags_ - not required - an array which every element is an existent tag name
+        2. _content_ - JSON object / string - **only required if isLink is true**
+        3. _tags_ - **not required** - an array which every element is an existent tag name
         4. _isLink_ - boolean
+
+    -   URL Example: `https://devpad-backend.herokuapp.com/notes/`
 
     -   **Creates a new note and returns its info**
 
@@ -95,11 +109,15 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
         3. _tags_ - not required - an array which every element is an existent tag name
         4. _isLink_ - boolean
 
+    -   URL Example: `https://devpad-backend.herokuapp.com/notes/4619cb1f-5d0b-494b-a5cf-1561fc091d5a`
+
     -   **Updates the note's info and returns the updated note info**
 
 -   _`/noteId`_ - **DELETE**
 
     -   **isPrivate** = true
+
+    -   URL Example: `https://devpad-backend.herokuapp.com/notes/4619cb1f-5d0b-494b-a5cf-1561fc091d5a`
 
     -   **Deletes the note by its ID. Only deletes if the given note is property from the user that generated the token sent in Authorization header**
 
