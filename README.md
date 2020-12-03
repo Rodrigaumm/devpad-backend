@@ -17,7 +17,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 ## Users
 
-#### Route = _"/users"_
+### Route = _"/users"_
 
 -   _`/`_ - **POST**
 
@@ -38,7 +38,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 ---
 
-#### Route = _"/auth"_
+### Route = _"/auth"_
 
 -   _`/`_ - **POST**
 
@@ -61,7 +61,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
 ## Notes
 
-#### Route = _"/notes"_
+### Route = _"/notes"_
 
 -   _`/`_ - **GET**
 
