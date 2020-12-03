@@ -26,7 +26,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
     Needs a JSON body that contains _username_, _email_ and _password_ properties;
     Creates and returns the new user info.
 
-    **Creates an user and returns its info**
+    -   **Creates an user and returns its info**
 
 ---
 
@@ -34,7 +34,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     **isPrivate** = false
 
-    **Returns an user's info**
+    -   **Returns an user's info**
 
 ---
 
@@ -47,7 +47,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
     Needs a JSON body that contains _email_ and _password_ properties, filled with a existent user's data;
     Generates a JSONWebToken used to access private routes
 
-    **Creates a JWT for the user which has compatible info with the sent data and returns it**
+    -   **Creates a JWT for the user which has compatible info with the sent data and returns it**
 
 ---
 
@@ -55,7 +55,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     **isPrivate** = false
 
-    **Verifies if the given JWT is valid or not**
+    -   **Verifies if the given JWT is valid or not**
 
 ---
 
@@ -67,7 +67,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     **isPrivate** = true
 
-    **Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header**
+    -   **Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header**
 
 ---
 
@@ -75,7 +75,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     **isPrivate** = true
 
-    **Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header**
+    -   **Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header**
 
 ---
 
@@ -90,7 +90,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 3. _tags_ - not required - an array which every element is an existent tag name
 4. _isLink_ - boolean
 
-    **Creates a new note and returns its info**
+    - **Creates a new note and returns its info**
 
 ---
 
@@ -105,7 +105,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 3. _tags_ - not required - an array which every element is an existent tag name
 4. _isLink_ - boolean
 
-    **Updates the note's info and returns the updated note info**
+    - **Updates the note's info and returns the updated note info**
 
 ---
 
@@ -113,7 +113,7 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     **isPrivate** = true
 
-    **Deletes the note by its ID. Only deletes if the given note is property from the user that generated the token sent in Authorization header**
+    -   **Deletes the note by its ID. Only deletes if the given note is property from the user that generated the token sent in Authorization header**
 
 ---
 
