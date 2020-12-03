@@ -2,3 +2,6 @@ node_modules
 dist
 ormconfig.json
 yarn-error.log
+secret.txt
+ormconfig.local.json
+nginx
