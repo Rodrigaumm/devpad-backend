@@ -28,8 +28,6 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     -   **Creates an user and returns its info**
 
----
-
 -   _`/userId`_ - **GET**
 
     -   **isPrivate** = false
@@ -49,8 +47,6 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     -   **Creates a JWT for the user which has compatible info with the sent data and returns it**
 
----
-
 -   _`/verify/JSONWebToken`_ - **GET**
 
     -   **isPrivate** = false
@@ -69,15 +65,11 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     -   **Returns all the user's notes with its info. The utilized user is selected by the token in the Authorization header**
 
----
-
 -   _`/noteId`_ - **GET**
 
     -   **isPrivate** = true
 
     -   **Returns a note's info by its id. The note has to be property of the user that generated the token in Authorization header**
-
----
 
 -   _`/`_ - **POST**
 
@@ -92,8 +84,6 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
 
     -   **Creates a new note and returns its info**
 
----
-
 -   _`/noteId`_ - **PUT**
 
     -   **isPrivate** = true
@@ -106,8 +96,6 @@ To verify if a token is still valid, use the _"/auth/verify/yourTokenHere"_ rout
         4. _isLink_ - boolean
 
     -   **Updates the note's info and returns the updated note info**
-
----
 
 -   _`/noteId`_ - **DELETE**
 
